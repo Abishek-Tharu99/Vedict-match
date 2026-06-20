@@ -4,7 +4,7 @@ import type {
   MatchReport,
   MatchRequest,
   SaveReportResponse,
-} from "@vedic-match/shared";
+} from "../../../shared/src";
 
 class ApiError extends Error {
   status: number;
