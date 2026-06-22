@@ -6,6 +6,11 @@ import reports from "./reports.js";
 
 const router = Router();
 
+router.get("/", (_req, res) => {
+  res.json({ status: "ok", message: "Vedict Match API running" });
+});
+
+
 router.use(health);
 router.use(geocode);
 router.use(match);
