@@ -6,6 +6,10 @@ import type {
   SaveReportResponse,
 } from "../../../shared/src";
 
+// const API_URL = import.meta.env.VITE_API_URL;
+const API_BASE_URL =
+  import.meta.env.VITE_API_URL || "http://localhost:5000";
+
 class ApiError extends Error {
   status: number;
   constructor(message: string, status: number) {
@@ -15,7 +19,7 @@ class ApiError extends Error {
 }
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE_URL}/api${path}`, {
     headers: { "Content-Type": "application/json" },
     ...init,
   });
