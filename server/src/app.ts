@@ -63,11 +63,14 @@ if (isProd) {
   });
 }
 
-const corsAllow = (process.env.CORS_ORIGIN ?? "")
-  .split(",")
-  .map((s) => s.trim())
-  .filter(Boolean);
-app.use(cors({ origin: corsAllow.length ? corsAllow : false, credentials: false }));
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://vedict-match-client.vercel.app",
+    "https://your-other-domain.vercel.app"
+  ],
+  credentials: false
+}));
 
 app.use(express.json({ limit: "32kb" }));
 app.use(express.urlencoded({ extended: true, limit: "32kb" }));
