@@ -67,7 +67,9 @@ app.use(cors({
   origin: [
     "http://localhost:5173",
     "https://vedict-match-client.vercel.app",
-    "https://your-other-domain.vercel.app"
+    "https://your-other-domain.vercel.app",
+    "https://suiaihustle.com",
+    "https://www.suiaihustle.com"
   ],
   credentials: false
 }));
