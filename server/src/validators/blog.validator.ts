@@ -7,7 +7,7 @@ export const createBlogSchema = z.object({
 
   content: z.string().min(100),
 
-  coverImage: z.string().url().optional(),
+  coverImage: z.string().url().optional().or(z.literal("")),
 
   author: z.string().min(2),
 

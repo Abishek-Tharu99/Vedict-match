@@ -10,3 +10,25 @@ export async function getBlogs() {
 
   return res.json();
 }
+
+export async function createBlog(blog: any) {
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`${API_BASE_URL}/api/blogs`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify(blog),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    console.log("Validation Error:", data);
+    throw new Error(data.message);
+  }
+
+  return data;
+}

@@ -3,7 +3,7 @@ import { createBlogSchema } from "../validators/blog.validator.js";
 import { BlogService } from "../services/blog.service.js";
 import { ZodError } from "zod";
 
-  //create a new blog post
+//create a new blog post
 
 export async function createBlog(req: Request, res: Response) {
   try {
@@ -14,6 +14,8 @@ export async function createBlog(req: Request, res: Response) {
     return res.status(201).json(blog);
   } catch (error) {
     if (error instanceof ZodError) {
+      console.log(error.issues);
+
       return res.status(400).json({
         message: "Validation failed",
         errors: error.issues,
@@ -29,7 +31,7 @@ export async function createBlog(req: Request, res: Response) {
 }
 
 
-   //get all published blogs
+//get all published blogs
 export async function getBlogs(__req: Request, res: Response) {
   try {
     const blogs = await BlogService.getBlogs();
@@ -48,7 +50,7 @@ type BlogParams = {
   slug: string;
 };
 
-      //get a blog by slug
+//get a blog by slug
 export async function getBlogBySlug(req: Request<BlogParams>, res: Response) {
   try {
     const { slug } = req.params;
@@ -75,7 +77,7 @@ type BlogIdParams = {
   id: string;
 };
 
-    //update a blog by id
+//update a blog by id
 export async function updateBlog(
   req: Request<BlogIdParams>,
   res: Response

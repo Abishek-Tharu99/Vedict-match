@@ -1,53 +1,83 @@
 import { useState } from "react";
+import { useLocation } from "wouter";
+
 
 export function AdminLogin() {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [, navigate] = useLocation();
+    const API_BASE_URL =
+        import.meta.env.VITE_API_URL || "https://vedict-match.onrender.com";
 
-  function handleLogin(e: React.FormEvent) {
-    e.preventDefault();
 
-    console.log({
-      username,
-      password,
-    });
+    async function handleLogin(e: React.FormEvent) {
+        e.preventDefault();
 
-    // Later we'll call POST /api/auth/login
-  }
+        try {
+            const res = await fetch(`${API_BASE_URL}/api/auth/login`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    username,
+                    password,
+                }),
+            });
 
-  return (
-    <div className="mx-auto mt-20 max-w-md rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-8">
+            const data = await res.json();
 
-      <h1 className="mb-6 text-center text-3xl font-bold">
-        Admin Login
-      </h1>
+            if (!res.ok) {
+                alert(data.message || "Login failed");
+                return;
+            }
 
-      <form onSubmit={handleLogin} className="space-y-5">
+            localStorage.setItem("token", data.token);
 
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e)=>setUsername(e.target.value)}
-          className="w-full rounded-xl border border-[var(--line)] p-3"
-        />
+            navigate("/admin/dashboard");
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e)=>setPassword(e.target.value)}
-          className="w-full rounded-xl border border-[var(--line)] p-3"
-        />
+            // Redirect later
+            // navigate("/admin/dashboard");
+            
+        } catch (err) {
+            console.error(err);
+            alert("Server error");
+        }
+    }
 
-        <button
-          className="w-full rounded-xl bg-orange-500 py-3 text-white"
-        >
-          Login
-        </button>
+    return (
+        <div className="mx-auto mt-20 max-w-md rounded-2xl border border-[var(--line)] bg-[var(--panel)] p-8">
 
-      </form>
+            <h1 className="mb-6 text-center text-3xl font-bold">
+                Admin Login
+            </h1>
 
-    </div>
-  );
+            <form onSubmit={handleLogin} className="space-y-5">
+
+                <input
+                    type="text"
+                    placeholder="Username"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    className="w-full rounded-xl border border-[var(--line)] p-3"
+                />
+
+                <input
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="w-full rounded-xl border border-[var(--line)] p-3"
+                />
+
+                <button
+                    className="w-full rounded-xl bg-orange-500 py-3 text-white"
+                >
+                    Login
+                </button>
+
+            </form>
+
+        </div>
+    );
 }
