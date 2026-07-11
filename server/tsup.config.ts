@@ -10,4 +10,9 @@ export default defineConfig({
   sourcemap: true,
   // Bundle the workspace-local shared package; keep node_modules external.
   noExternal: [/@vedic-match\/shared/],
+  
+  external: [
+    "jsonwebtoken",
+    "bcrypt",
+  ],
 });
