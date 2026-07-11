@@ -30,6 +30,11 @@ export function Layout({ children }: { children: ReactNode }) {
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-[var(--color-saffron)] text-lg text-white">
             ✶
           </span>
+          {/* <span>
+            <img src="/logo.png" alt="VedicMatch Logo" className="h-9 w-9 rounded-xl" />
+
+          </span> */}
+
           <span className="text-base font-semibold tracking-tight text-[var(--ink)]">
             Vedic<span className="text-[var(--color-saffron-soft)]">Match</span>
           </span>

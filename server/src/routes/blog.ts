@@ -6,6 +6,7 @@ import {
     updateBlog,
     deleteBlog,
 } from "../controllers/blog.controllers.js";
+import { authenticate } from "../middleware/auth.middleware.js";
 
 
 const router = Router();
@@ -16,7 +17,7 @@ const router = Router();
 
 router.get("/", getBlogs);
 router.get("/:slug", getBlogBySlug);
-router.post("/", createBlog);
+router.post("/", authenticate, createBlog);
 router.put("/:id", updateBlog);
 router.delete("/:id", deleteBlog);
 

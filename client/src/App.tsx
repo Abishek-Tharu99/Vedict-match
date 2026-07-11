@@ -5,6 +5,8 @@ import { Report } from "./pages/Report";
 import { Reports } from "./pages/Reports";
 import { Card } from "./components/ui";
 import {Blog} from "./pages/Blog";
+import { BlogDetails } from "./pages/BlogDetails";
+import { AdminLogin } from "./pages/AdminLogin";
 
 export function App() {
   return (
@@ -14,6 +16,8 @@ export function App() {
         <Route path="/blog" component={Blog} />
         <Route path="/report" component={Report} />
         <Route path="/reports" component={Reports} />
+        <Route path="/blog/:slug" component={BlogDetails} />
+        <Route path="/admin/login" component={AdminLogin} />
 
         <Route>
           <Card className="mx-auto max-w-md p-10 text-center">

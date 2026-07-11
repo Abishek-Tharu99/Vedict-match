@@ -4,6 +4,7 @@ import geocode from "./geocode.js";
 import match from "./match.js";
 import reports from "./reports.js";
 import createBlog from "./blog.js";
+import auth from "./auth.js";
 
 const router = Router();
 
@@ -17,6 +18,7 @@ router.use(geocode);
 router.use(match);
 router.use(reports);
 router.use("/blogs", createBlog);
+router.use("/auth", auth);
 
 
 export default router;
