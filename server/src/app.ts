@@ -81,6 +81,7 @@ app.use("/api", apiLimiter);
 app.use("/api/geocode", heavyLimiter);
 app.use("/api/match", heavyLimiter);
 app.post("/api/reports", heavyLimiter);
+app.use("/api/blogs", heavyLimiter);
 
 app.use("/api", routes);
 

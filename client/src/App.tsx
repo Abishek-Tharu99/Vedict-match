@@ -4,14 +4,17 @@ import { Home } from "./pages/Home";
 import { Report } from "./pages/Report";
 import { Reports } from "./pages/Reports";
 import { Card } from "./components/ui";
+import {Blog} from "./pages/Blog";
 
 export function App() {
   return (
     <Layout>
       <Switch>
         <Route path="/" component={Home} />
+        <Route path="/blog" component={Blog} />
         <Route path="/report" component={Report} />
         <Route path="/reports" component={Reports} />
+
         <Route>
           <Card className="mx-auto max-w-md p-10 text-center">
             <h2 className="text-lg font-semibold text-[var(--ink)]">Page not found</h2>

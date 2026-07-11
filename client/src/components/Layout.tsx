@@ -35,9 +35,31 @@ export function Layout({ children }: { children: ReactNode }) {
           </span>
         </Link>
         <div className="flex items-center gap-2">
-          <nav className="flex items-center gap-1 rounded-xl border border-[var(--line)] bg-[var(--inset)] p-1">
+          {/* <nav className="flex items-center gap-1 rounded-xl border border-[var(--line)] bg-[var(--inset)] p-1">
             <NavLink href="/" label="Compute" active={location === "/"} />
             <NavLink href="/reports" label="Reports" active={location.startsWith("/reports")} />
+          </nav> */}
+
+          <nav className="flex items-center gap-1 rounded-xl border border-[var(--line)] bg-[var(--inset)] p-1">
+
+            <NavLink
+              href="/"
+              label="Home"
+              active={location === "/"}
+            />
+
+            <NavLink
+              href="/reports"
+              label="Reports"
+              active={location.startsWith("/reports")}
+            />
+
+            <NavLink
+              href="/blog"
+              label="Blog"
+              active={location.startsWith("/blog")}
+            />
+
           </nav>
           <button
             type="button"
