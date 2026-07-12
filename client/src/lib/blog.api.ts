@@ -58,9 +58,10 @@ export async function updateBlog(id: string, data: any) {
   });
 
   if (!res.ok) {
-    const error = await res.json();
-    throw new Error(error.message);
-  }
+  const error = await res.json();
+  console.log("Validation Error:", JSON.stringify(error, null, 2));
+  throw new Error(error.message);
+}
 
   return res.json();
 }
