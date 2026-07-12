@@ -192,7 +192,7 @@ export function CreateBlog() {
                 {form.coverImage && (
 
                     <img
-                        src={`${API_BASE_URL}${form.coverImage}`}
+                        src={form.coverImage}
                         className="w-full h-72 rounded-xl object-cover"
                     />
 

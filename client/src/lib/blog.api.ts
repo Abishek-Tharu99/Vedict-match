@@ -57,13 +57,14 @@ export async function updateBlog(id: string, data: any) {
     body: JSON.stringify(data),
   });
 
-  if (!res.ok) {
-  const error = await res.json();
-  console.log("Validation Error:", JSON.stringify(error, null, 2));
-  throw new Error(error.message);
-}
+  const result = await res.json();
 
-  return res.json();
+  if (!res.ok) {
+    console.log("Validation Error:", result);
+    throw new Error(result.message);
+  }
+
+  return result;
 }
 
 export async function getBlogById(id: string) {
