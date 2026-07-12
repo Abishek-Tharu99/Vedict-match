@@ -9,6 +9,7 @@ import { logger } from "./lib/logger.js";
 import { apiLimiter, heavyLimiter } from "./lib/limits.js";
 import routes from "./routes/index.js";
 
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const isProd = process.env.NODE_ENV === "production";
 
@@ -84,6 +85,7 @@ app.use("/api/geocode", heavyLimiter);
 app.use("/api/match", heavyLimiter);
 app.post("/api/reports", heavyLimiter);
 app.use("/api/blogs", heavyLimiter);
+app.use("/api/uploadRoute", heavyLimiter);
 
 app.use("/api", routes);
 
