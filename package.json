@@ -88,6 +88,9 @@
     "jsonwebtoken": "^9.0.3",
 
 
+    "multer": "^2.2.0",
+
+
     "react-router-dom": "^7.18.1",
 
 
@@ -103,7 +106,10 @@
     "@types/bcrypt": "^6.0.0",
 
 
-    "@types/jsonwebtoken": "^9.0.10"
+    "@types/jsonwebtoken": "^9.0.10",
+
+
+    "@types/multer": "^2.2.0"
 
 
   }

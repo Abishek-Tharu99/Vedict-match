@@ -77,6 +77,8 @@ app.use(cors({
 app.use(express.json({ limit: "32kb" }));
 app.use(express.urlencoded({ extended: true, limit: "32kb" }));
 
+app.use("/uploads", express.static("uploads"));
+
 app.use("/api", apiLimiter);
 app.use("/api/geocode", heavyLimiter);
 app.use("/api/match", heavyLimiter);

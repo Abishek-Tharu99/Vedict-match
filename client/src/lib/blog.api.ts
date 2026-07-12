@@ -48,7 +48,7 @@ export async function createBlog(blog: any) {
 }
 
 export async function updateBlog(id: string, data: any) {
-  const res = await fetch(`${API_BASE_URL}/blogs/${id}`, {
+  const res = await fetch(`${API_BASE_URL}/api/blogs/${id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export async function updateBlog(id: string, data: any) {
 }
 
 export async function getBlogById(id: string) {
-  const res = await fetch(`${API_BASE_URL}/admin/edit-blog/${id}`, {
+  const res = await fetch(`${API_BASE_URL}/api/blogs/id/${id}`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,

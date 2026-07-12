@@ -16,6 +16,22 @@ export function Blog() {
             .finally(() => setLoading(false));
     }, []);
 
+    // const filteredBlogs = blogs.filter((blog) =>
+    //     blog.title.toLowerCase().includes(search.toLowerCase())
+    // );
+
+    const filteredBlogs = blogs.filter((blog) => {
+        const q = search.toLowerCase();
+
+        return (
+            blog.title.toLowerCase().includes(q) ||
+            blog.slug.toLowerCase().includes(q) ||
+            blog.category?.toLowerCase().includes(q) ||
+            blog.excerpt.toLowerCase().includes(q) ||
+            blog.author.toLowerCase().includes(q)
+        );
+    });
+
     return (
         <div className="mx-auto max-w-7xl">
 
@@ -61,7 +77,7 @@ export function Blog() {
             ) : (
                 <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
 
-                    {blogs.map((blog) => (
+                    {filteredBlogs.map((blog) => (
                         <BlogCard
                             key={blog.id}
                             blog={blog}
