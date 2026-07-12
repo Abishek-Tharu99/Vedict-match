@@ -12,7 +12,9 @@ export default defineConfig({
   noExternal: [/@vedic-match\/shared/],
   
   external: [
+    "multer",
     "jsonwebtoken",
     "bcrypt",
+    
   ],
 });
