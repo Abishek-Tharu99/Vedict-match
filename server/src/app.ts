@@ -43,8 +43,8 @@ app.use(
         "script-src": ["'self'"],
         "style-src": ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
         "font-src": ["'self'", "https://fonts.gstatic.com", "data:"],
-        "img-src": ["'self'", "data:"],
-        "connect-src": ["'self'"],
+        "img-src": ["'self'", "data:", "https://vedict-match.onrender.com", "https://vedict-match-client.vercel.app", "https://suiaihustle.com", "https://www.suiaihustle.com"],
+        "connect-src": ["'self'","https://vedict-match.onrender.com",],
         "frame-ancestors": ["'none'"],
       },
     },
@@ -85,7 +85,7 @@ app.use("/api/geocode", heavyLimiter);
 app.use("/api/match", heavyLimiter);
 app.post("/api/reports", heavyLimiter);
 app.use("/api/blogs", heavyLimiter);
-app.use("/api/uploadRoute", heavyLimiter);
+app.use("/api/upload", heavyLimiter);
 
 app.use("/api", routes);
 

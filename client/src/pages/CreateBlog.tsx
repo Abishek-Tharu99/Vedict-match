@@ -3,6 +3,8 @@ import { createBlog, updateBlog, getBlogById } from "../lib/blog.api";
 import { useLocation, useParams } from "wouter";
 import TiptapEditor from "../components/TiptapEditor";
 
+const API_BASE_URL =
+    import.meta.env.VITE_API_URL || "https://vedict-match.onrender.com";
 
 export function CreateBlog() {
 
@@ -100,6 +102,32 @@ export function CreateBlog() {
             .replace(/(^-|-$)/g, "");
     }
 
+    async function handleImageUpload(
+        e: React.ChangeEvent<HTMLInputElement>
+    ) {
+        const file = e.target.files?.[0];
+
+        if (!file) return;
+
+        const data = new FormData();
+
+        data.append("image", file);
+
+        const res = await fetch(
+            `${API_BASE_URL}/api/upload`,
+            {
+                method: "POST",
+                body: data,
+            }
+        );
+
+        const json = await res.json();
+
+        setForm(prev => ({
+            ...prev,
+            coverImage: json.url,
+        }));
+    }
 
     const categories = [
         "Programming",
@@ -154,6 +182,21 @@ export function CreateBlog() {
                     readOnly
                     className="w-full rounded-xl text-green-500 border p-3"
                 />
+
+                <input
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageUpload}
+                />
+
+                {form.coverImage && (
+
+                    <img
+                        src={`${API_BASE_URL}${form.coverImage}`}
+                        className="w-full h-72 rounded-xl object-cover"
+                    />
+
+                )}
 
                 <textarea
                     name="excerpt"

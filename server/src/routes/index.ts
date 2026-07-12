@@ -21,7 +21,7 @@ router.use(match);
 router.use(reports);
 router.use("/blogs", createBlog);
 router.use("/auth", auth);
-router.use(uploadRoute);
+router.use("/upload", uploadRoute);
 
 
 export default router;
