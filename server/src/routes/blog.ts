@@ -5,6 +5,7 @@ import {
     getBlogBySlug,
     updateBlog,
     deleteBlog,
+    getBlogById,
 } from "../controllers/blog.controllers.js";
 import { authenticate } from "../middleware/auth.middleware.js";
 
@@ -20,6 +21,7 @@ router.get("/:slug", getBlogBySlug);
 router.post("/", authenticate, createBlog);
 router.put("/:id", updateBlog);
 router.delete("/:id", deleteBlog);
+router.get("/id", getBlogById);
 
 
 export default router;

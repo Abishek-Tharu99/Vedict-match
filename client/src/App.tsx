@@ -10,6 +10,7 @@ import { AdminLogin } from "./pages/AdminLogin";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { ProtectedRoute } from "./components/Protectedroute";
 import { CreateBlog } from "./pages/CreateBlog";
+import { ManageBlogs } from "./pages/ManageBlogs";
 
 export function App() {
   return (
@@ -29,6 +30,8 @@ export function App() {
         </Route>
 
         <Route path="/admin/blog/new" component={CreateBlog}/>
+        <Route path="/admin/blogs/manage" component={ManageBlogs}/>
+        <Route path="/admin/edit-blog/:id" component={CreateBlog} />
 
 
         <Route>

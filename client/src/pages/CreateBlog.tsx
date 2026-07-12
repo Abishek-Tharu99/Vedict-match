@@ -1,8 +1,15 @@
-import { useState } from "react";
-import { createBlog } from "../lib/blog.api";
-import { useLocation } from "wouter";
+import { useEffect, useState } from "react";
+import { createBlog, updateBlog, getBlogById } from "../lib/blog.api";
+import { useLocation, useParams } from "wouter";
+import TiptapEditor from "../components/TiptapEditor";
+
 
 export function CreateBlog() {
+
+    const params = useParams();
+    const idParam = params?.id;
+    const id = typeof idParam === "string" ? idParam : undefined;
+
     const [form, setForm] = useState({
         title: "",
         slug: "",
@@ -14,6 +21,34 @@ export function CreateBlog() {
         featured: false,
         published: true,
     });
+
+    useEffect(() => {
+        if (id === undefined) return;
+
+        const blogId = id;
+
+        async function loadBlog() {
+            try {
+                const blog = await getBlogById(blogId);
+
+                setForm({
+                    title: blog.title,
+                    slug: blog.slug,
+                    excerpt: blog.excerpt,
+                    content: blog.content,
+                    author: blog.author,
+                    category: blog.category,
+                    coverImage: blog.coverImage || "",
+                    featured: blog.featured,
+                    published: blog.published,
+                });
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        loadBlog();
+    }, [id]);
 
     const [, navigate] = useLocation();
 
@@ -35,22 +70,25 @@ export function CreateBlog() {
 
     async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
-        
+
         const payload = {
             ...form,
             coverImage: form.coverImage || undefined,
         };
 
-
         try {
-            await createBlog(payload);
-
-            alert("Blog published successfully!");
+            if (id !== undefined) {
+                await updateBlog(id, payload);
+                alert("Blog updated successfully!");
+            } else {
+                await createBlog(payload);
+                alert("Blog published successfully!");
+            }
 
             navigate("/blog");
         } catch (err) {
             console.error(err);
-            alert("Failed to publish blog.");
+            alert("Failed.");
         }
     }
 
@@ -126,13 +164,15 @@ export function CreateBlog() {
                     onChange={handleChange}
                 />
 
-                <textarea
-                    name="content"
-                    placeholder="Write your blog..."
-                    rows={15}
-                    className="w-full rounded-xl border p-3"
+
+                <TiptapEditor
                     value={form.content}
-                    onChange={handleChange}
+                    onChange={(html) =>
+                        setForm((prev) => ({
+                            ...prev,
+                            content: html,
+                        }))
+                    }
                 />
 
                 <input
@@ -196,7 +236,7 @@ export function CreateBlog() {
                 <button
                     className="rounded-xl bg-orange-500 px-8 py-3 text-white"
                 >
-                    Publish Blog
+                    {id ? "Update Blog" : "Publish Blog"}
                 </button>
 
             </form>

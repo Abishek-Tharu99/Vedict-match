@@ -19,7 +19,7 @@ export function AdminDashboard() {
           </div>
         </Link>
 
-        <Link href="/admin/blogs">
+        <Link href="/admin/blogs/manage">
           <div className="cursor-pointer rounded-xl border p-6 hover:bg-gray-100 dark:hover:bg-gray-800">
             <h2 className="text-xl font-semibold">📝 Manage Blogs</h2>
             <p className="mt-2 text-sm text-gray-500">

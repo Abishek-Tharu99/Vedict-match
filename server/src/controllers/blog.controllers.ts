@@ -141,3 +141,25 @@ export async function deleteBlog(
     });
   }
 }
+
+export async function getBlogById(req: Request<BlogIdParams>, res: Response) {
+  try {
+    const { id } = req.params;
+
+    const blog = await BlogService.getBlogById(id);
+
+    if (!blog) {
+      return res.status(404).json({
+        message: "Blog not found",
+      });
+    }
+
+    return res.json(blog);
+  } catch (error) {
+    console.error(error);
+
+    return res.status(500).json({
+      message: "Failed to fetch blog",
+    });
+  }
+}

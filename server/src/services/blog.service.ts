@@ -52,7 +52,7 @@ export class BlogService {
 
         return blog;
     }
-        //delete a blog by id
+    //delete a blog by id
     static async deleteBlog(id: string) {
         const [blog] = await db
             .delete(blogs)
@@ -62,4 +62,13 @@ export class BlogService {
         return blog;
     }
 
+    //get a blog by id
+    static async getBlogById(id: string) {
+        const [blog] = await db
+            .select()
+            .from(blogs)
+            .where(eq(blogs.id, id));
+
+        return blog;
+    }
 }
