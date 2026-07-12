@@ -114,7 +114,7 @@ export function CreateBlog() {
         data.append("image", file);
 
         const res = await fetch(
-            `${API_BASE_URL}/api/upload`,
+            `${API_BASE_URL}/api/upload/upload`,
             {
                 method: "POST",
                 body: data,
