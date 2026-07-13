@@ -8,7 +8,7 @@ import Image from "@tiptap/extension-image";
 import Placeholder from "@tiptap/extension-placeholder";
 
 
-import EditorToolbar from "./EditorToolbar";
+import EditorToolbar from "./EditorToolbar.tsx";
 
 type Props = {
     value: string;
