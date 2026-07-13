@@ -10,6 +10,46 @@
     "typecheck": "tsc -b --noEmit"
   },
   "dependencies": {
+    "@tiptap/extension-highlight": "^3.27.3",
+
+
+    "@tiptap/extension-image": "^3.27.3",
+
+
+    "@tiptap/extension-link": "^3.27.3",
+
+
+    "@tiptap/extension-placeholder": "^3.27.3",
+
+
+    "@tiptap/extension-text-align": "^3.27.3",
+
+
+    "@tiptap/extension-underline": "^3.27.3",
+
+
+    "@tiptap/react": "^3.27.3",
+
+
+    "@tiptap/starter-kit": "^3.27.3",
+
+
+    "bcrypt": "^6.0.0",
+
+
+    "jsonwebtoken": "^9.0.3",
+
+
+    "lucide-react": "^1.24.0",
+
+
+    "multer": "^2.2.0",
+
+
+    "react-router-dom": "^7.18.1",
+
+
+    "slugify": "^1.6.9",
     "@tanstack/react-query": "^5.62.11",
     "@vedic-match/shared": "*",
     "react": "^19.0.0",
