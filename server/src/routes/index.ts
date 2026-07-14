@@ -13,6 +13,8 @@ const router = Router();
 
 router.get("/", (_req, res) => {
   res.json({ status: "ok", message: "Vedict Match API running" });
+  console.log("GMAIL_USER:", process.env.GMAIL_USER);
+  console.log("GMAIL_PASS exists:", !!process.env.GMAIL_PASS);
 });
 
 
