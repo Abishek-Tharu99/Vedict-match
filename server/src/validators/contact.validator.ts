@@ -5,7 +5,7 @@ export const contactSchema = z.object({
 
   email: z.string().email(),
 
-  subject: z.string().min(5),
+  subject: z.string().min(2),
 
-  message: z.string().min(10),
+  message: z.string().min(5),
 });

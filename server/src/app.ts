@@ -87,6 +87,7 @@ app.use("/api/match", heavyLimiter);
 app.post("/api/reports", heavyLimiter);
 app.use("/api/blogs", heavyLimiter);
 app.use("/api/upload", heavyLimiter);
+app.use("/api/contact", heavyLimiter);
 
 app.use("/api", routes);
 

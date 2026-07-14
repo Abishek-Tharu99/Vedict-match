@@ -2,6 +2,7 @@ import { useState } from "react";
 import { sendContact } from "../lib/contact.api";
 
 export function Contact() {
+    const [success, setSuccess] = useState("");
     const [form, setForm] = useState({
         name: "",
         email: "",
@@ -28,6 +29,7 @@ export function Contact() {
             const res = await sendContact(form);
 
             alert(res.message);
+            setSuccess("🎉 Thank you! Your message has been sent.");
 
             setForm({
                 name: "",
@@ -38,7 +40,7 @@ export function Contact() {
 
         } catch (err) {
             console.error(err);
-            alert("Failed to send message.");
+            setSuccess("❌ Failed to send message.");
         } finally {
             setLoading(false);
         }
@@ -123,7 +125,11 @@ export function Contact() {
                     </div>
 
                 </div>
-
+                {success && (
+                    <div className="mb-4 rounded-xl bg-green-100 p-4 text-green-700">
+                        {success}
+                    </div>
+                )}
                 {/* Form */}
 
                 <div className="rounded-3xl border border-[var(--line)] bg-[var(--panel)] p-8">
