@@ -9,4 +9,8 @@ export interface Blog {
   category: string | null;
   readingTime: number | null;
   createdAt: string;
+  updatedAt: string;
+  featured: boolean;
+  views: number;
+  published: boolean;
 }

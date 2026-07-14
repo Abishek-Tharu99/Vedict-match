@@ -1,10 +1,7 @@
 import { useEffect, useState } from "react";
 import { useRoute } from "wouter";
 import type { Blog } from "../lib/blog.types";
-
-const API_BASE_URL =
-  import.meta.env.VITE_API_URL || "https://vedict-match.onrender.com";
-
+import { getBlogBySlug } from "../lib/wordpress.api";
 
 export function BlogDetails() {
   const [, params] = useRoute("/blog/:slug");
@@ -14,8 +11,7 @@ export function BlogDetails() {
   useEffect(() => {
     if (!params?.slug) return;
 
-    fetch(`${API_BASE_URL}/api/blogs/${params.slug}`)
-      .then((res) => res.json())
+    getBlogBySlug(params.slug)
       .then(setBlog)
       .finally(() => setLoading(false));
   }, [params]);
@@ -43,9 +39,12 @@ export function BlogDetails() {
         <span>{blog.readingTime} min read</span>
       </div>
 
-      <div className="prose mt-10 max-w-none">
-        {blog.content}
-      </div>
+      <div
+        className="prose prose-lg mt-10 max-w-none"
+        dangerouslySetInnerHTML={{
+          __html: blog.content,
+        }}
+      />
 
     </div>
   );

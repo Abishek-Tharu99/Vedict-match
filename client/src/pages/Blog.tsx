@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { getBlogs } from "../lib/blog.api";
+import { getBlogs } from "../lib/wordpress.api";
 import { BlogCard } from "../components/blog/BlogCard";
 import type { Blog } from "../lib/blog.types";
-import { useLocation } from "wouter";
+// import { useLocation } from "wouter";
 
 export function Blog() {
     const [search, setSearch] = useState("");
     const [blogs, setBlogs] = useState<Blog[]>([]);
     const [loading, setLoading] = useState(true);
-    const [, navigate] = useLocation();
+    // const [, navigate] = useLocation();
 
     useEffect(() => {
         getBlogs()
@@ -58,18 +58,14 @@ export function Blog() {
                     className="rounded-xl border border-[var(--line)] bg-[var(--panel)] p-3 outline-none md:w-96"
                 />
 
-                {/* <button
-                    className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white hover:bg-orange-600"
-                >
-                    Write Blog
-                </button> */}
+              
 
-                <button
+                {/* <button
                     onClick={() => navigate("/admin/login")}
                     className="rounded-xl bg-orange-500 px-6 py-3 font-semibold text-white hover:bg-orange-600"
                 >
                     Write Blog
-                </button>
+                </button> */}
 
             </div>
             {loading ? (

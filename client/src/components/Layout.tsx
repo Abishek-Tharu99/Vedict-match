@@ -64,10 +64,16 @@ export function Layout({ children }: { children: ReactNode }) {
               label="Blog"
               active={location.startsWith("/blog")}
             />
-            <NavLink
+            {/* <NavLink
               href="/admin/login"
               label="Admin"
               active={location === "/admin/login"}
+            /> */}
+
+            <NavLink
+              href="/contact"
+              label="Contact"
+              active={location.startsWith("/contact")}
             />
 
           </nav>

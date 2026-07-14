@@ -11,6 +11,7 @@ import { AdminDashboard } from "./pages/AdminDashboard";
 import { ProtectedRoute } from "./components/Protectedroute";
 import { CreateBlog } from "./pages/CreateBlog";
 import { ManageBlogs } from "./pages/ManageBlogs";
+import { Contact } from "./pages/Contact";
 
 export function App() {
   return (
@@ -22,6 +23,7 @@ export function App() {
         <Route path="/reports" component={Reports} />
         <Route path="/blog/:slug" component={BlogDetails} />
         <Route path="/admin/login" component={AdminLogin} />
+        <Route path="/contact" component={Contact} />
         
         <Route path="/admin/dashboard">
           <ProtectedRoute>
