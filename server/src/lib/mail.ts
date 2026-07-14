@@ -15,8 +15,8 @@ export async function sendContactEmail(data: {
   message: string;
 }) {
   await transporter.sendMail({
-    from: `"Su AI Hustle Contact" <${process.env.GMAIL_USER}>`,
-    to: process.env.GMAIL_USER,
+    from: `"Su AI Hustle Contact" <${"hackerheaven73@gmail.com"}>`,
+    to: "tegc hzvr dzpb ijdx",
     replyTo: data.email,
     subject: `New Contact: ${data.subject}`,
     html: `
