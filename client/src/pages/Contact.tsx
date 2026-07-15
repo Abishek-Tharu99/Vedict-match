@@ -106,7 +106,7 @@ export function Contact() {
                                 href="mailto:hackerheaven73@gmail.com"
                                 className="mt-1 block text-[var(--ink-soft)] hover:text-orange-500"
                             >
-                               vedicmatch@gmail.com
+                               sujaldev20@gmail.com
                             </a>
                         </div>
 
