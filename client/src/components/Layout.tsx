@@ -87,9 +87,33 @@ export function Layout({ children }: { children: ReactNode }) {
       </header>
 
       <main className="flex-1 pb-16">{children}</main>
-
+      {/* 
       <footer className="border-t border-[var(--line)] py-6 text-center text-xs text-[var(--ink-faint)]">
         Ashtakoot Guna Milan · heuristic Vedic compatibility · for guidance, not certainty.
+      </footer> */}
+
+      <footer className="border-t border-[var(--line)] py-8">
+
+        <div className="flex flex-wrap justify-center gap-6 text-sm">
+
+          <Link href="/about">About</Link>
+
+          <Link href="/privacy">Privacy Policy</Link>
+
+          <Link href="/terms">Terms & Conditions</Link>
+
+          <Link href="/disclaimer">Disclaimer</Link>
+
+          <Link href="/contact">Contact</Link>
+
+          <Link href="/blog">Blog</Link>
+
+        </div>
+
+        <p className="mt-6 text-center text-xs text-[var(--ink-faint)]">
+          © {new Date().getFullYear()} Vedic Match. All rights reserved.
+        </p>
+
       </footer>
     </div>
   );

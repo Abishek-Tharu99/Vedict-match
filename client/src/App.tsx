@@ -12,6 +12,10 @@ import { ProtectedRoute } from "./components/Protectedroute";
 import { CreateBlog } from "./pages/CreateBlog";
 import { ManageBlogs } from "./pages/ManageBlogs";
 import { Contact } from "./pages/Contact";
+import { PrivacyPolicy } from "./pages/PrivacyPolicy";
+import { Disclaimer } from "./pages/Disclaimer";
+import { Terms } from "./pages/Terms";
+import { About } from "./pages/About";
 
 export function App() {
   return (
@@ -24,16 +28,20 @@ export function App() {
         <Route path="/blog/:slug" component={BlogDetails} />
         <Route path="/admin/login" component={AdminLogin} />
         <Route path="/contact" component={Contact} />
-        
+
         <Route path="/admin/dashboard">
           <ProtectedRoute>
             <AdminDashboard />
           </ProtectedRoute>
         </Route>
 
-        <Route path="/admin/blog/new" component={CreateBlog}/>
-        <Route path="/admin/blogs/manage" component={ManageBlogs}/>
+        <Route path="/admin/blog/new" component={CreateBlog} />
+        <Route path="/admin/blogs/manage" component={ManageBlogs} />
         <Route path="/admin/edit-blog/:id" component={CreateBlog} />
+        <Route path="/privacy" component={PrivacyPolicy} />
+        <Route path="/disclaimer" component={Disclaimer} />
+        <Route path="/terms" component={Terms} />
+        <Route path="/about" component={About} />
 
 
         <Route>
@@ -42,6 +50,8 @@ export function App() {
             <p className="mt-2 text-sm text-[var(--ink-soft)]">That cosmic path doesn’t exist.</p>
           </Card>
         </Route>
+
+        
       </Switch>
     </Layout>
   );

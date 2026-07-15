@@ -22,4 +22,20 @@
         <priority>0.8</priority>
     </url>
 
+    <url>
+    <loc>https://suiaihustle.com/privacy</loc>
+    </url>
+
+<url>
+    <loc>https://suiaihustle.com/disclaimer</loc>
+</url>
+
+<url>
+    <loc>https://suiaihustle.com/terms</loc>
+</url>
+
+<url>
+    <loc>https://suiaihustle.com/about</loc>
+</url>
+
 </urlset>
