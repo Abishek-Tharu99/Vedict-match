@@ -56,9 +56,9 @@ export function About() {
             Contact
           </h2>
 
-          <p>Email: hackerheaven73@gmail.com</p>
+          <p>Email: sujaldev20@gmail.com</p>
 
-          <p>Phone: +977 9761285140</p>
+          <p>Phone: +977 970-1584176</p>
         </div>
 
       </div>
