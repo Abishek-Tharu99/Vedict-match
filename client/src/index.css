@@ -1,5 +1,6 @@
 @import "tailwindcss";
 
+
 :root  {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --color-saffron: #ff3c00;
@@ -9,9 +10,8 @@
 :root {
   color-scheme: light;
   --bg:
-    radial-gradient(1200px 600px at 50% -10%, rgba(255, 60, 0, 0.1), transparent 60%),
-    radial-gradient(900px 500px at 90% 10%, rgba(124, 58, 237, 0.08), transparent 55%),
-    #f5f1f7;
+    linear-gradient(rgba(169, 169, 169, 0.8), rgba(147, 147, 148, 0.8)),
+    url("/bg.jpeg") center/cover no-repeat fixed;
   --ink: #1c1426;
   --ink-soft: rgba(28, 20, 38, 0.62);
   --ink-faint: rgba(28, 20, 38, 0.42);
@@ -26,7 +26,7 @@
   --track: rgba(28, 20, 38, 0.1);
 }
 
-.dark {
+/* .dark {
   color-scheme: dark;
   --bg:
     radial-gradient(1200px 600px at 50% -10%, rgba(255, 60, 0, 0.18), transparent 60%),
@@ -44,6 +44,28 @@
   --field-bg: rgba(0, 0, 0, 0.3);
   --popover-bg: #160f1f;
   --track: rgba(255, 255, 255, 0.08);
+} */
+
+
+.dark {
+  color-scheme: dark;
+
+  --bg:
+    linear-gradient(rgb(8, 6, 20,0.8), rgba(8, 6, 20,0.8)),
+    url("/bg.jpeg") center/cover no-repeat fixed;
+
+  --ink: #f4eefb;
+  --ink-soft: rgba(244,238,251,.6);
+  --ink-faint: rgba(244,238,251,.4);
+  --surface: rgba(255, 255, 255, 0);
+  --inset: rgba(255,255,255,.05);
+  --inset-hover: rgba(255,255,255,.1);
+  --sunken: rgba(0,0,0,.2);
+  --line: rgba(255,255,255,.08);
+  --line-soft: rgba(255,255,255,.06);
+  --field-bg: rgba(0,0,0,.3);
+  --popover-bg: #160f1f;
+  --track: rgba(255,255,255,.08);
 }
 
 html,

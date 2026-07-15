@@ -47,7 +47,7 @@ export function Contact() {
     }
 
     return (
-        <div className="mx-auto max-w-7xl px-6 py-16">
+        <div className="mx-auto max-w-7xl px-6 py-16 bg-[var(--surface)]">
 
             {/* Heading */}
 
@@ -93,7 +93,7 @@ export function Contact() {
                             </p>
 
                             <p className="mt-1 text-[var(--ink-soft)]">
-                                +977 9761285140
+                                +977 970-1584176
                             </p>
                         </div>
 
@@ -106,7 +106,7 @@ export function Contact() {
                                 href="mailto:hackerheaven73@gmail.com"
                                 className="mt-1 block text-[var(--ink-soft)] hover:text-orange-500"
                             >
-                                hackerheaven73@gmail.com
+                               vedicmatch@gmail.com
                             </a>
                         </div>
 

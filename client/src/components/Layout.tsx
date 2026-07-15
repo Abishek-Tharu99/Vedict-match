@@ -25,20 +25,17 @@ export function Layout({ children }: { children: ReactNode }) {
 
   return (
     <div className="mx-auto flex min-h-full max-w-6xl flex-col px-4 sm:px-6">
-      <header className="flex items-center justify-between py-5">
+      <header className="flex items-center justify-between py-5 ">
+
         <Link href="/" className="flex items-center gap-3">
-          <span className="grid h-9 w-9 place-items-center rounded-xl bg-[var(--color-saffron)] text-lg text-white">
-            ✶
-          </span>
-          {/* <span>
-            <img src="/logo.png" alt="VedicMatch Logo" className="h-9 w-9 rounded-xl" />
-
-          </span> */}
-
-          <span className="text-base font-semibold tracking-tight text-[var(--ink)]">
-            Vedic<span className="text-[var(--color-saffron-soft)]">Match</span>
-          </span>
+          <img
+            src="/logo.png"
+            alt="Vedic Match Make"
+            className="h-30 w-auto"
+          />
         </Link>
+
+
         <div className="flex items-center gap-2">
           {/* <nav className="flex items-center gap-1 rounded-xl border border-[var(--line)] bg-[var(--inset)] p-1">
             <NavLink href="/" label="Compute" active={location === "/"} />
